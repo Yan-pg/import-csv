@@ -1,7 +1,7 @@
 <template>
   <div class="fixed top-16 w-full max-w-sm px-4 z-[1000]">
     <Popover class="relative">
-      <PopoverButton as="div">
+      <PopoverButton as="div" class="max-w-20">
         <slot name="trigger" />
       </PopoverButton>
 
@@ -20,12 +20,14 @@
             <div class="flex flex-col gap-2">
               <button class="flex items-center gap-2" @click="toggleAll(false)">
                 <PhCopy :size="18" />
-                <span class="text-sm">Mostrar todas as Colunas</span>
+                <span class="text-sm text-start">Mostrar todas as Colunas</span>
               </button>
 
               <button class="flex items-center gap-2" @click="toggleAll(true)">
                 <PhCopy :size="18" />
-                <span class="text-sm">Esconder todas as Colunas</span>
+                <span class="text-sm text-start"
+                  >Esconder todas as Colunas</span
+                >
               </button>
             </div>
 

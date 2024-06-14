@@ -39,12 +39,14 @@
         </Popover>
       </div>
 
-      <Button class="w-32 -mt-4" @click="downloadCSV">
-        <template #startIcon>
-          <PhPlus :size="12" weight="bold" />
-        </template>
-        Exportar CSV
-      </Button>
+      <div>
+        <Button class="w-32 -mt-4" @click="downloadCSV">
+          <template #startIcon>
+            <PhPlus :size="12" weight="bold" />
+          </template>
+          Exportar CSV
+        </Button>
+      </div>
     </section>
 
     <section class="mt-5 h-full">
@@ -157,6 +159,11 @@ function arrayToCSV(data: any[]) {
 }
 
 function downloadCSV() {
+  if (!selectedRows.value.length) {
+    alert("Selecione pelo menos uma linha para exportar");
+    return;
+  }
+
   const selectedData = arrayToCSV([
     currentTableData.value.headers,
     currentTableData.value.data,
