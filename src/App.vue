@@ -50,6 +50,7 @@
     <section class="mt-5 h-full">
       <EmptyState v-if="!currentTableData.headers.length" />
       <Table
+        v-if="isTableShow"
         :col-defs="tableData.headers"
         :row-data="tableData.data"
         @getGridApi="getGridApi"
