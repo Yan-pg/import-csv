@@ -1,12 +1,14 @@
 <template>
   <header class="p-4 flex items-center gap-5">
-    <span
+    <button
       :class="[
         'text-blue-primary font-light',
         !isTableShow ? 'font-bold' : 'font-light',
       ]"
-      >Início</span
+      @click="isTableShow = false"
     >
+      Início
+    </button>
     <PhCaretRight v-if="isTableShow" :size="16" />
     <span v-if="isTableShow" class="text-blue-primary font-bold text-sm"
       >Detalhe do CSV</span
@@ -50,7 +52,7 @@
     </section>
 
     <section class="mt-5 h-full">
-      <EmptyState v-if="!currentTableData.headers.length" />
+      <EmptyState v-if="!isTableShow" />
       <Table
         v-if="isTableShow"
         :col-defs="tableData.headers"
